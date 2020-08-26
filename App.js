@@ -1,11 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+
+  const URL = `http://api.weatherapi.com/v1/current.json?key=${REACT_APP_WEATHER_API_KEY}&q=New York`
+  const [state, setstate] = useState([])
+
+  fetch(URL).then(r => r.json()).then(data => {
+   console.log
+  })
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>This is App file!</Text>
+  <Text>Currently in NYC the weather is {}</Text>
       <StatusBar style="auto" />
     </View>
   );
