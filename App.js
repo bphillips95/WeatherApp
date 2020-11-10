@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { WEATHER_API_KEY} from 'react-native-dotenv'
+import Weather from './components/Weather'
 
 export default function App() {
 
@@ -18,8 +19,15 @@ console.log(URL)
   return (
     <View style={styles.container}>
       <Text>This is App file!</Text>
+  <Text>THis is {Weather}</Text>
   <Text>Currently in {state?.location?.name} the weather is {state?.current?.temp_f} degrees and {state?.current?.condition?.text}  </Text>
       <StatusBar style="auto" />
+      <Button
+  onPress={() => {
+    alert('You tapped the button!');
+  }}
+  title="Press Me"
+/>
     </View>
   );
 }
