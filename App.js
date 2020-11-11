@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { WEATHER_API_KEY} from 'react-native-dotenv'
 import Weather from './components/Weather'
 
@@ -17,6 +17,7 @@ export default function App() {
   }, [])
   return (
     <View style={styles.container}>
+      <Image style={styles.logo} source={require('./images/cloudy.jpg')} />
       <Text>This is App file!</Text>
       <Weather props={state}/>
       <StatusBar style="auto" />
@@ -36,5 +37,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  logo: {
+    width: 136,
+    height: 128,
   },
 });
