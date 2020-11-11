@@ -8,19 +8,17 @@ export default function App() {
 
   const URL = `http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=New York`
   const [state, setstate] = useState([])
-console.log(URL)
+
     // have to understand useEffect
   useEffect(() => {
     fetch(URL).then(r => r.json()).then(data => {
       setstate(data)
      })
   }, [])
-  console.log(state)
   return (
     <View style={styles.container}>
       <Text>This is App file!</Text>
-  <Text>THis is {Weather}</Text>
-  <Text>Currently in {state?.location?.name} the weather is {state?.current?.temp_f} degrees and {state?.current?.condition?.text}  </Text>
+      <Weather props={state}/>
       <StatusBar style="auto" />
       <Button
   onPress={() => {
